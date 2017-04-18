@@ -194,24 +194,24 @@ dialog.matches('StartActivity',[
                         console.log(err);
                     }
                     session.send ('we are at 1');
-            });
-            var result = "";
-            request.on('row',function(columns){
-                session.send ('we are at 2');
-                columns.forEach(function(element) {
-                    if (element.value === null){
-                        console.log('NULL');
-                    } else {
-                        result+= element.value + " ";
-                    }
+                });
+                var result = "";
+                request.on('row',function(columns){
+                    session.send ('we are at 2');
+                    columns.forEach(function(element) {
+                        if (element.value === null){
+                            console.log('NULL');
+                        } else {
+                            result+= element.value + " ";
+                        }
                     session.send ('we are at 3');
-                }, this);
+                    });
                               
-                console.log(result);
-                session.send ("The result is %i",result);
-                result = "";
-            });
-            request.on('done',function(rowCount, more){
+                    console.log(result);
+                    session.send ("The result is %i",result);
+                    result = "";
+                });
+                request.on('done',function(rowCount, more){
                 console.log(rowCount+' rows returned');
 
             });
