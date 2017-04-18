@@ -179,7 +179,7 @@ dialog.matches('StartActivity',[
                 server: 'candidatesearch.database.windows.net',
                 options: {encrypt: true, database: 'my_db'}
             };
-            var connection = new Connections(config);
+            var connection = new Connection(config);
             connection.on('connect', function(err){
                 session.send('search for candidates in %s to be available with lead time ::%s', duration.location, duration.ActivityDuration);
             });
