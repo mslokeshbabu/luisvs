@@ -176,14 +176,14 @@ dialog.matches('StartActivity',[
             // connection.end();
             var Connection = require('tedious').Connection;  
             var config = {
-                username: 'root12345@candidatesearch.database.windows.net',
+                username: 'root12345@candidatesearch',
                 password: 'admin1234$$',
                 server: 'candidatesearch.database.windows.net',
-                // options: {
-                //     encrypt: true, 
-                //     database: 'employer', 
-                //     rowCollectionOnRequestCompletion: true
-                // }
+                options: {
+                    encrypt: true, 
+                    database: 'employer', 
+                    // rowCollectionOnRequestCompletion: true
+                }
             };
             var connection = new Connection(config);
             connection.on('connect', function(err){
