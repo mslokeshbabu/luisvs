@@ -217,7 +217,10 @@ dialog.matches('StartActivity',[
                 console.log(rowCount+' rows returned');
 
             });
+            
+            session.send ('we are at 6');
             connection.execSql(request);
+            
             }
         }
 
