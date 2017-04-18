@@ -193,7 +193,7 @@ dialog.matches('StartActivity',[
                     if (err){
                         console.log(err);
                     }
-                    session.send ('we are at 1');
+                    session.send ('we are at 1', Request);
                 });
                 var result = "";
                 
@@ -216,10 +216,10 @@ dialog.matches('StartActivity',[
                     session.send ('we are at 5');
                 console.log(rowCount+' rows returned');
 
-            });
-            
-            session.send ('we are at 6');
-            connection.execSql(request);
+                });
+
+                session.send ('we are at 6');
+                connection.execSql(request);
             
             }
         }
