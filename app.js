@@ -188,7 +188,7 @@ dialog.matches('StartActivity',[
             var connection = new Connection(config);
             connection.on('connect', function(err){
                 if (err){
-                    console.log("error in connecting");
+                    console.log('error in connecting' + err);
                     return;
                 }
                 session.send('search for candidates in %s to be available with lead time ::%s', duration.location, duration.ActivityDuration);
