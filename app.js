@@ -190,7 +190,7 @@ dialog.matches('StartActivity',[
 
             function executeStatement(){
                 var req;
-                req = new Request('select employeesId, Name, Location from [dbo.employees]', function(err, rowCount, rows){
+                req = new Request("select employeesId, Name, Location from [dbo.employees]", function(err, rowCount, rows){
                     if (err){
                         console.log(err);
                     }
