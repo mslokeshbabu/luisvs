@@ -217,7 +217,7 @@ dialog.matches('StartActivity',[
                     console.log(result); 
                     result = "";
                 });
-                req.on('done',function(rowCount, more){
+                req.on('doneInProc',function(rowCount, more){
                 console.log(rowCount + ' rows returned');
 
                 });
