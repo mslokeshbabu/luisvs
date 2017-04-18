@@ -159,9 +159,9 @@ dialog.matches('StartActivity',[
             // };
 
             var connection = mysql.createConnection({
-                host:'localhost',
-                user:'root',
-                password:'root',
+                host:'candidatesearch.database.windows.net',
+                user:'root12345',
+                password:'admin1234$$',
                 database:'my_db'
             });
 
