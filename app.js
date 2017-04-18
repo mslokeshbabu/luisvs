@@ -184,6 +184,7 @@ dialog.matches('StartActivity',[
                 session.send('search for candidates in %s to be available with lead time ::%s', duration.location, duration.ActivityDuration);
                 executeStatement();
             });
+            
             var Request = require('tedious').Request;
             var Types = require('tedious').TYPES;
 
