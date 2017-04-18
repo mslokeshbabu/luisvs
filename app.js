@@ -196,7 +196,7 @@ dialog.matches('StartActivity',[
             });
 
             function executeStatement(){
-                var sqlstring = "SELECT COUNT(*) as EmployeeCount FROM dbo.Employees";
+                var sqlstring = "SELECT * FROM dbo.Employees";
                 req = new Request(sqlstring, function(err, rowCount, rows){
                     if (err){
                         console.log(err);
@@ -204,28 +204,28 @@ dialog.matches('StartActivity',[
                     console.log(rowCount + ' rows');
                     session.send ('we are at 1 :: %s', rowCount);
                 });
-                // var result = "";
-                // session.send ('we are at 1.1', req);
-                // req.on('data',function(columns){
-                //     session.send ('we are at 2');
-                //     columns.forEach(function(element) {
-                //         if (element.value === null){
-                //             console.log('NULL');
-                //         } else {
-                //             result+= element.value + " ";
-                //         }
-                //     session.send ('we are at 3');
-                //     });
-                              
-                //     session.send ('we are at 4');
-                //     session.send ("The result is :: %s",result);
-                //     result = "";
-                // });
-                // req.on('end',function(rowCount, more){
-                //     session.send ('we are at 5');
-                // console.log(rowCount+' rows returned');
 
-                // });
+                var result = "";
+                req.on('row',function(columns){
+                    session.send ('we are at 2');
+                    columns.forEach(function(element) {
+                        if (element.value === null){
+                            console.log('NULL');
+                        } else {
+                            result+= element.value + " ";
+                        }
+                    session.send ('we are at 3');
+                    });
+                              
+                    session.send ('we are at 4');
+                    session.send ("The result is :: %s",result);
+                    result = "";
+                });
+                req.on('done',function(rowCount, more){
+                    session.send ('we are at 5');
+                console.log(rowCount+' rows returned');
+
+                });
 
                 session.send ('we are at 6');
                 connection.execSql(req);
