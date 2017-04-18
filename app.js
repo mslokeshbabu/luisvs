@@ -196,7 +196,7 @@ dialog.matches('StartActivity',[
                     session.send ('we are at 1', request);
                 });
                 var result = "";
-                
+                session.send ('we are at 1.1', request);
                 request.on('data',function(columns){
                     session.send ('we are at 2');
                     columns.forEach(function(element) {
