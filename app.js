@@ -189,15 +189,16 @@ dialog.matches('StartActivity',[
             var Types = require('tedious').TYPES;
 
             function executeStatement(){
-                request = new Request('SELECT e.EmployeesId, e.Name, e.Location FROM dbo.Employees as e',function(err){
+                var req;
+                req = new Request('select * from dbo.employees',function(err){
                     if (err){
                         console.log(err);
                     }
-                    session.send ('we are at 1', request);
+                    session.send ('we are at 1', req);
                 });
                 var result = "";
-                session.send ('we are at 1.1', request);
-                request.on('data',function(columns){
+                session.send ('we are at 1.1', req);
+                req.on('data',function(columns){
                     session.send ('we are at 2');
                     columns.forEach(function(element) {
                         if (element.value === null){
@@ -212,14 +213,14 @@ dialog.matches('StartActivity',[
                     session.send ("The result is %i",result);
                     result = "";
                 });
-                request.on('end',function(rowCount, more){
+                req.on('end',function(rowCount, more){
                     session.send ('we are at 5');
                 console.log(rowCount+' rows returned');
 
                 });
 
                 session.send ('we are at 6');
-                connection.execSql(request);
+                connection.execSql(req);
             
             }
         }
