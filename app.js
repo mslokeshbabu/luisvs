@@ -207,7 +207,7 @@ dialog.matches('StartActivity',[
                     session.send ('we are at 3');
                     });
                               
-                    console.log(result);
+                    session.send ('we are at 4');
                     session.send ("The result is %i",result);
                     result = "";
                 });
