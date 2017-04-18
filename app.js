@@ -190,7 +190,7 @@ dialog.matches('StartActivity',[
 
             function executeStatement(){
                 var req;
-                var sqlstring = "SELECT COUNT(*) as EmployeeCount FROM [dbo.Employees]";
+                var sqlstring = "select 42, 'hello world'";
                 req = new Request(sqlstring, function(err, rowCount, rows){
                     if (err){
                         console.log(err);
