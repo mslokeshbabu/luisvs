@@ -2,6 +2,8 @@ var restify = require('restify');
 var builder = require('botbuilder');
 var fs = require('fs');
 var mysql = require('mysql');
+var Request = require('tedious').Request;
+var Types = require('tedious').TYPES;
 
 //=========================================================
 // Bot Setup
@@ -182,8 +184,7 @@ dialog.matches('StartActivity',[
             var connection = new Connection(config);
             connection.on('connect', function(err){
                 session.send('search for candidates in %s to be available with lead time ::%s', duration.location, duration.ActivityDuration);
-                var Request = require('tedious').Request;
-                var Types = require('tedious').TYPES;
+
                 executeStatement();
             });
 
