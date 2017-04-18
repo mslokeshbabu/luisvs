@@ -182,7 +182,35 @@ dialog.matches('StartActivity',[
             var connection = new Connection(config);
             connection.on('connect', function(err){
                 session.send('search for candidates in %s to be available with lead time ::%s', duration.location, duration.ActivityDuration);
+                executeStatement();
             });
+            var Request = require('tedious').Request;
+            var Types = require('tedious').TYPES;
+
+            function executeStatement(){
+                request = new Request("select 1 + 1 AS solution",function(err){
+                    if (err){
+                        console.log(err);
+                    }
+            });
+            var result = "";
+            request.on('row',function(columns){
+                columns.forEach(function(column){
+                    if (column.value=== null){
+                        console.log('NULL');
+                    } else {
+                        result+= column.value + " ";
+                    }
+                });
+                console.log(result);
+                result = "";
+            });
+            request.on('done',function(rowCount, more){
+                console.log(rowCount+' rows returned');
+
+            });
+            connection.execSql(request);
+            }
         }
 
     }
