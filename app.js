@@ -180,9 +180,9 @@ dialog.matches('StartActivity',[
                 options: {encrypt: true, database: 'my_db'}
             };
             var connection = new Connections(config);
-            connection.on('connect', function(err)){
+            connection.on('connect', function(err){
                 session.send('search for candidates in %s to be available with lead time ::%s', duration.location, duration.ActivityDuration);
-            }
+            });
         }
 
     }
