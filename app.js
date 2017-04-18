@@ -189,7 +189,7 @@ dialog.matches('StartActivity',[
             var Types = require('tedious').TYPES;
 
             function executeStatement(){
-                request = new Request("SELECT 1 + 1 AS solution",function(err){
+                request = new Request('SELECT 1 + 1 AS solution',function(err){
                     if (err){
                         console.log(err);
                     }
