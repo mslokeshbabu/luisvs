@@ -130,8 +130,7 @@ dialog.matches('StartActivity',[
         }
         if (duration.location && duration.technology && duration.ActivityDuration){
             duration.address = session.message.address;
-            session.send('searching for candidates in %s to be available with lead time :%s', duration.location, duration.ActivityDuration);
-            
+                        
             // search the dB and return the candidate list
             // var DB = db.DB;
             // var box = new DB (
@@ -169,6 +168,7 @@ dialog.matches('StartActivity',[
             connection.query('SELECT 1 + 1 AS solution', function (error, results, fields){
                 if (error) throw error;
                 console.log('The solution is:', results[0].solution);
+                session.send('search for candidates in %s to be available with lead time ::%s', duration.location, duration.ActivityDuration);
             });
 
             connection.end();
