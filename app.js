@@ -214,10 +214,11 @@ dialog.matches('StartActivity',[
                             result+= element.value + " ";
                         }
                     });
+                    console.log(result); 
                     result = "";
                 });
                 req.on('done',function(rowCount, more){
-                console.log(rowCount+' rows returned');
+                console.log(rowCount + ' rows returned');
 
                 });
                 connection.execSql(req);
