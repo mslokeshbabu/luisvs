@@ -193,7 +193,7 @@ dialog.matches('StartActivity',[
                     if (err){
                         console.log(err);
                     }
-                    session.send ('we are at 1', Request);
+                    session.send ('we are at 1', request);
                 });
                 var result = "";
                 
