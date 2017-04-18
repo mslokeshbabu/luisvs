@@ -190,11 +190,12 @@ dialog.matches('StartActivity',[
 
             function executeStatement(){
                 var req;
-                req = new Request('select * from dbo.employees',function(err){
+                req = new Request('select employeesId, Name, Location from [dbo.employees]',function(err, rowCount, rows){
                     if (err){
                         console.log(err);
                     }
-                    session.send ('we are at 1', req);
+                    console.log(rowCount + ' rows');
+                    session.send ('we are at 1 :%i', rowCount);
                 });
                 var result = "";
                 session.send ('we are at 1.1', req);
