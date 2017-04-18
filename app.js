@@ -176,12 +176,12 @@ dialog.matches('StartActivity',[
             // connection.end();
             var Connection = require('tedious').Connection;  
             var config = {
-                username: 'root12345@candidatesearch',
+                username: 'root12345@candidatesearch.database.windows.net',
                 password: 'admin1234$$',
                 server: 'candidatesearch.database.windows.net:1433',
                 options: {
                     encrypt: true, 
-                    database: 'employer', 
+                    database: 'employer' 
                     // rowCollectionOnRequestCompletion: true
                 }
             };
