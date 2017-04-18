@@ -196,7 +196,8 @@ dialog.matches('StartActivity',[
                     session.send ('we are at 1');
                 });
                 var result = "";
-                request.on('row',function(columns){
+                
+                request.on('data',function(columns){
                     session.send ('we are at 2');
                     columns.forEach(function(element) {
                         if (element.value === null){
@@ -211,7 +212,8 @@ dialog.matches('StartActivity',[
                     session.send ("The result is %i",result);
                     result = "";
                 });
-                request.on('done',function(rowCount, more){
+                request.on('end',function(rowCount, more){
+                    session.send ('we are at 5');
                 console.log(rowCount+' rows returned');
 
             });
