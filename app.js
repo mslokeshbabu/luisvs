@@ -174,7 +174,7 @@ dialog.matches('StartActivity',[
             // connection.end();
             var Connection = require('tedious').Connection;  
             var config = {
-                username: 'root12345',
+                username: 'root12345@candidatesearch.database.windows.net',
                 password: 'admin1234$$',
                 server: 'candidatesearch.database.windows.net',
                 options: {encrypt: true, database: 'my_db'}
