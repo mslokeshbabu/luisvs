@@ -198,14 +198,15 @@ dialog.matches('StartActivity',[
             var result = "";
             request.on('row',function(columns){
                 session.send ('we are at 2');
-                columns.forEach(function(column){
-                    if (column.value === null){
+                columns.forEach(function(element) {
+                    if (element.value === null){
                         console.log('NULL');
                     } else {
-                        result+= column.value + " ";
+                        result+= element.value + " ";
                     }
                     session.send ('we are at 3');
-                });
+                }, this);
+                              
                 console.log(result);
                 session.send ("The result is %i",result);
                 result = "";
