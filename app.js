@@ -178,7 +178,7 @@ dialog.matches('StartActivity',[
             var config = {
                 username: 'root12345@candidatesearch.database.windows.net',
                 password: 'admin1234$$',
-                server: 'candidatesearch.database.windows.net:1433',
+                server: 'candidatesearch.database.windows.net',
                 options: {
                     encrypt: true, 
                     database: 'employer' 
