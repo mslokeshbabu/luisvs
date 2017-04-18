@@ -181,8 +181,8 @@ dialog.matches('StartActivity',[
                 server: 'candidatesearch.database.windows.net',
                 options: {
                     encrypt: true, 
-                    database: 'employer' 
-                    // rowCollectionOnRequestCompletion: true
+                    database: 'employer', 
+                    rowCollectionOnRequestCompletion: true
                 }
             };
             var connection = new Connection(config);
