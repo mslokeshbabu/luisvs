@@ -207,27 +207,19 @@ dialog.matches('StartActivity',[
 
                 var result = "";
                 req.on('row',function(columns){
-                    session.send ('we are at 2');
                     columns.forEach(function(element) {
                         if (element.value === null){
                             console.log('NULL');
                         } else {
                             result+= element.value + " ";
                         }
-                    session.send ('we are at 3');
                     });
-                              
-                    session.send ('we are at 4');
-                    session.send ("The result is :: %s",result);
                     result = "";
                 });
                 req.on('done',function(rowCount, more){
-                    session.send ('we are at 5');
                 console.log(rowCount+' rows returned');
 
                 });
-
-                session.send ('we are at 6');
                 connection.execSql(req);
             
             }
