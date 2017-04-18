@@ -205,6 +205,7 @@ dialog.matches('StartActivity',[
                     }
                 });
                 console.log(result);
+                session.send ("The result is %i",result);
                 result = "";
             });
             request.on('done',function(rowCount, more){
