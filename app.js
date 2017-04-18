@@ -190,12 +190,12 @@ dialog.matches('StartActivity',[
 
             function executeStatement(){
                 var req;
-                req = new Request('select employeesId, Name, Location from [dbo.employees]',function(err, rowCount, rows){
+                req = new Request('select employeesId, Name, Location from [dbo.employees]', function(err, rowCount, rows){
                     if (err){
                         console.log(err);
                     }
                     console.log(rowCount + ' rows');
-                    session.send ('we are at 1 :%i', rowCount);
+                    session.send ('we are at 1 :: %s', rowCount);
                 });
                 var result = "";
                 session.send ('we are at 1.1', req);
@@ -211,7 +211,7 @@ dialog.matches('StartActivity',[
                     });
                               
                     session.send ('we are at 4');
-                    session.send ("The result is %i",result);
+                    session.send ("The result is :: %s",result);
                     result = "";
                 });
                 req.on('end',function(rowCount, more){
