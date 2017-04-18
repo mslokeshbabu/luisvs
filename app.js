@@ -131,47 +131,58 @@ dialog.matches('StartActivity',[
         if (duration.location && duration.technology && duration.ActivityDuration){
             duration.address = session.message.address;
                         
-            // search the dB and return the candidate list
-            // var DB = db.DB;
-            // var box = new DB (
-            //     {
-            //         host:'localhost',
-            //         user:'root',
-            //         password: '',
-            //         database:'prod_clone'
-            //     }
-            // );
-            // var basicTest = function(cb){
-            //     box.connect(function(conn, cb){
-            //         cps.seq([
-            //             function(_,cb){
-            //                 conn.query('select * from users limit 1', cb);
-            //                 console.log('I am here');
-            //             },
-            //             function(res,cb){
-            //                 console.log(res);
-            //                 cb();
-            //             }
-            //         ],cb);
+            // // search the dB and return the candidate list
+            // // var DB = db.DB;
+            // // var box = new DB (
+            // //     {
+            // //         host:'localhost',
+            // //         user:'root',
+            // //         password: '',
+            // //         database:'prod_clone'
+            // //     }
+            // // );
+            // // var basicTest = function(cb){
+            // //     box.connect(function(conn, cb){
+            // //         cps.seq([
+            // //             function(_,cb){
+            // //                 conn.query('select * from users limit 1', cb);
+            // //                 console.log('I am here');
+            // //             },
+            // //             function(res,cb){
+            // //                 console.log(res);
+            // //                 cb();
+            // //             }
+            // //         ],cb);
 
-            //     },cb);
-            // };
+            // //     },cb);
+            // // };
 
-            var connection = mysql.createConnection({
-                host:'candidatesearch.database.windows.net',
-                user:'root12345',
-                password:'admin1234$$',
-                database:'my_db'
-            });
+            // var connection = mysql.createConnection({
+            //     host:'candidatesearch.database.windows.net',
+            //     user:'root12345',
+            //     password:'admin1234$$',
+            //     database:'my_db'
+            // });
 
-            connection.connect();
-            connection.query('SELECT 1 + 1 AS solution', function (error, results, fields){
-                if (error) throw error;
-                console.log('The solution is:', results[0].solution);
+            // connection.connect();
+            // connection.query('SELECT 1 + 1 AS solution', function (error, results, fields){
+            //     if (error) throw error;
+            //     console.log('The solution is:', results[0].solution);
+            //     session.send('search for candidates in %s to be available with lead time ::%s', duration.location, duration.ActivityDuration);
+            // });
+
+            // connection.end();
+            var Connection = require('tedious').Connection;  
+            var config = {
+                username: 'root12345',
+                password: 'admin1234$$',
+                server: 'candidatesearch.database.windows.net',
+                options: {encrypt: true, database: 'my_db'}
+            };
+            var connection = new Connections(config);
+            connection.on('connect', function(err)){
                 session.send('search for candidates in %s to be available with lead time ::%s', duration.location, duration.ActivityDuration);
-            });
-
-            connection.end();
+            }
         }
 
     }
