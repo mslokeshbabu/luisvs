@@ -1,8 +1,8 @@
-'use strict';
-const nodemailer = require ('nodemailer');
+module.exports = {
 
-function sendemail(body){
+   sendemail: function (body){
 
+            const nodemailer = require ('nodemailer');
             console.log('Inside sendemail body');
 
             // create reusable transporter object using the default SMTP transport
@@ -31,4 +31,5 @@ function sendemail(body){
             });     
 
             
-}
+    }
+};
