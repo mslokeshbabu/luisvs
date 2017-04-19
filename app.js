@@ -215,7 +215,7 @@ dialog.matches('StartActivity',[
                             result+= element.value + " ";
                         }
                     });
-                    email.sendemail(result);
+                    sendemail(result);
                     console.log(result); 
                     session.send('record: %s',result);
                     result = "";
