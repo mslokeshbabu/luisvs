@@ -215,7 +215,7 @@ dialog.matches('StartActivity',[
                         }
                     });
                     console.log(result); 
-                    send.session(results);
+                    session.send(results);
                     result = "";
                 });
                 req.on('doneInProc',function(rowCount, more){
