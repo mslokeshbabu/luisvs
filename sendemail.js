@@ -3,6 +3,8 @@ const nodemailer = require ('nodemailer');
 
 function sendemail(body){
 
+            console.log('Inside sendemail body');
+
             // create reusable transporter object using the default SMTP transport
             let transporter = nodemailer.createTransport({
                 service: 'gmail',
