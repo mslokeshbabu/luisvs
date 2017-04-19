@@ -229,7 +229,8 @@ dialog.matches('StartActivity',[
             }
 
             function sendemail(body){
-                
+                console.log('inside send email');
+                session.send('body: %s',body);
                // setup email data with unicode symbols
                 let mailOptions = {
                     text: body // plain text body
