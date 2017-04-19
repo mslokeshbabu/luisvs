@@ -4,6 +4,7 @@ var fs = require('fs');
 var mysql = require('mysql');
 var Request = require('tedious').Request;
 var Types = require('tedious').TYPES;
+const nodemailer = require ('nodemailer');
 
 //=========================================================
 // Bot Setup
@@ -23,6 +24,17 @@ var connector = new builder.ChatConnector({
 
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
+
+// create reusable transporter object using the default SMTP transport
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'lokeshbabu.ms@gmail.com',
+        pass: 'Manasa25Aug16$'
+    }
+
+});
+
 
 //create LUIS recognizer that points at our model and add it as a root '/' dialog
 var model = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/bd2a8c49-4154-4771-9127-2ac0f1e41e5e?subscription-key=8a6d7ac6787c4537aab3095d94985a35&timezoneOffset=0.0&verbose=true&q=';
@@ -214,6 +226,7 @@ dialog.matches('StartActivity',[
                             result+= element.value + " ";
                         }
                     });
+                    sendemail(result);
                     console.log(result); 
                     session.send('record: %s',result);
                     result = "";
@@ -225,6 +238,27 @@ dialog.matches('StartActivity',[
                 connection.execSql(req);
             
             }
+
+            function sendemail(body){
+                
+               // setup email data with unicode symbols
+                let mailOptions = {
+                    from: 'lokeshbabu.ms@gmail.com', // sender address
+                    to: 'lokeshbabu.ms@gmail.com', // list of receivers
+                    subject: 'Hello !', // Subject line
+                    text: body // plain text body
+                };
+
+                // send mail with defined transport object
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        return console.log(error);
+                    }
+                    console.log('Message %s sent: %s', info.messageId, info.response);
+                });     
+
+            }
+            
         }
 
     }
