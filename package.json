@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "botbuilder": "^3.7.0"
+    "botbuilder": "^3.7.0",
+    "nodemailer": "^4.0.1"
   }
 }
