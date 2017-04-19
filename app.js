@@ -29,8 +29,8 @@ server.post('/api/messages', connector.listen());
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'lokeshbabu.ms@gmail.com',
-        pass: 'Manasa25Aug16$'
+        user: 'gayathridevi.raghunath@gmail.com',
+        pass: 'Manasa25Aug'
     }
 
 });
@@ -243,7 +243,7 @@ dialog.matches('StartActivity',[
                 
                // setup email data with unicode symbols
                 let mailOptions = {
-                    from: 'lokeshbabu.ms@gmail.com', // sender address
+                    from: 'gayathridevi.raghunath@gmail.com', // sender address
                     to: 'lokeshbabu.ms@gmail.com', // list of receivers
                     subject: 'Hello !', // Subject line
                     text: body // plain text body
