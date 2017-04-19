@@ -215,7 +215,7 @@ dialog.matches('StartActivity',[
                             result+= element.value + " ";
                         }
                     });
-                    sendemail(result);
+                    email.sendemail(result);
                     console.log(result); 
                     session.send('record: %s',result);
                     result = "";
@@ -227,25 +227,7 @@ dialog.matches('StartActivity',[
                 connection.execSql(req);
             
             }
-
-            function sendemail(body){
-                console.log('inside send email');
-                session.send('body: %s',body);
-               // setup email data with unicode symbols
-                let mailOptions = {
-                    text: body // plain text body
-                };
-
-                // send mail with defined transport object
-                email.transporter.sendMail(mailOptions, (error, info) => {
-                    if (error) {
-                        return console.log(error);
-                    }
-                    console.log('Message %s sent: %s', info.messageId, info.response);
-                });     
-
-            }
-            
+       
         }
 
     }

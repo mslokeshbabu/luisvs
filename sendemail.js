@@ -1,6 +1,8 @@
 'use strict';
 const nodemailer = require ('nodemailer');
 
+function sendemail(body){
+
             // create reusable transporter object using the default SMTP transport
             let transporter = nodemailer.createTransport({
                 service: 'gmail',
@@ -16,5 +18,15 @@ const nodemailer = require ('nodemailer');
                     from: 'gayathridevi.raghunath@gmail.com', // sender address
                     to: 'lokeshbabu.ms@gmail.com', // list of receivers
                     subject: 'Hello !', // Subject line
-                    text: " " // plain text body
+                    text: body // plain text body
             };
+                            // send mail with defined transport object
+            transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        return console.log(error);
+                    }
+                    console.log('Message %s sent: %s', info.messageId, info.response);
+            });     
+
+            
+}
