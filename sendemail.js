@@ -6,7 +6,7 @@ module.exports = {
             console.log('Inside sendemail body');
 
             // create reusable transporter object using the default SMTP transport
-            let transporter = nodemailer.createTransport({
+            let transporter = nodemailer.createTransport("SMTP",{
                 service: 'gmail',
                 auth: {
                     user: 'gayathridevi.raghunath@gmail.com',
